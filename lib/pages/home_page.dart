@@ -17,9 +17,17 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(100, 50)),
                   onPressed: () =>
                       Navigator.of(context).pushNamed(AppRoutes.containerPage),
                   child: const Text('Container Page')),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(100, 50)),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(AppRoutes.pageViewPage),
+                  child: const Text('PageView Page')),
             ],
           ),
         )));

@@ -50,8 +50,9 @@ class _BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
   void _setAnimationContainer() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
-    _animatedPosicion = Tween<double>(begin: 0, end: widget.size.height / 2)
-        .animate(_controller);
+    _animatedPosicion =
+        Tween<double>(begin: 0, end: (widget.size.height / 3) * 2)
+            .animate(_controller);
 
     _animatedPosicion.addListener(() {
       setState(() {});
@@ -70,7 +71,7 @@ class _BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
               width: double.infinity,
               height: _animatedPosicion.value,
               decoration: const BoxDecoration(
-                  color: Colors.amber,
+                  color: Colors.yellowAccent,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(35),
                       topRight: Radius.circular(35))),
@@ -88,8 +89,9 @@ class _BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
                     _setAnimationContainer();
                   });
                 },
-                child: const CustomPainterHexagonoWidget(
+                child: const HexagonoWidget(
                   icon: Icons.person,
+                  color: Colors.yellow,
                 )),
           ),
         ),

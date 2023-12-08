@@ -16,6 +16,10 @@ class MyAnimations extends StatelessWidget {
             return MaterialPageRoute(
               builder: (_) => const ContainerPage(),
             );
+          case AppRoutes.pageViewPage:
+            return MaterialPageRoute(
+              builder: (_) => const PageViewPage(),
+            );
           default:
             return MaterialPageRoute(builder: (_) => const HomePage());
         }

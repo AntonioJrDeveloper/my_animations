@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'dart:math' as math;
 
-class CustomPainterHexagonoWidget extends StatelessWidget {
-  const CustomPainterHexagonoWidget({Key? key, required this.icon})
-      : super(key: key);
-  final IconData icon;
+class HexagonoWidget extends StatelessWidget {
+  const HexagonoWidget({Key? key, this.icon, this.color}) : super(key: key);
+  final IconData? icon;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -13,21 +13,22 @@ class CustomPainterHexagonoWidget extends StatelessWidget {
       width: 100,
       height: 110,
       child: CustomPaint(
-        painter: CustomPainterHexagono(),
-        child: Icon(
-          icon,
-          size: 100 / 2,
-        ),
+        painter: Hexagono(color: color),
+        child: icon != null ? Icon(icon, size: 100 / 2) : Container(),
       ),
     );
   }
 }
 
-class CustomPainterHexagono extends CustomPainter {
+class Hexagono extends CustomPainter {
+  final Color? color;
+
+  Hexagono({this.color});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.blue
+      ..color = (color ?? Colors.blue)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3;
 
