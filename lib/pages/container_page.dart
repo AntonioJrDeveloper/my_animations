@@ -79,7 +79,7 @@ class _BodyWidgetState extends State<BodyWidget> with TickerProviderStateMixin {
           ),
         ),
         Positioned.fill(
-          top: 100,
+          top: (widget.size.height / 3) / 8,
           child: Container(
             alignment: Alignment.topCenter,
             width: double.infinity,
